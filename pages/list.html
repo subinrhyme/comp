@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="filter">
+        Filter: <input type="text" ng-model="search.name" />
+        <select id="order" ng-model="sortBy">
+            <option value="name">A-Z</option>
+            <option value="-name">Z-A</option>
+        </select>
+    </div>
+    <br />
+    <div ng-show="mobileData.length>0" class="col-lg-3 col-md-6" ng-repeat="mobile in mobileData | orderBy:sortBy | filter:search">
+        <div class="thumbnail">
+            <h4 class="text-center"><a href="#/detail/{{ mobile.id }}">{{ mobile.name }}</a></h4>
+            <img src="{{ mobile.imageUrl }}" class="img-responsive" />
+            <div class="caption">
+                <p>{{ mobile.snippet }}</p>
+            </div>
+        </div>    
+    </div>
+    <div ng-show="!mobileData.length" class="col-lg-3 col-md-6">
+        No Data
+    </div>
+</div>

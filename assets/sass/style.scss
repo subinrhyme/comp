@@ -1,0 +1,14 @@
+$font-stack: 'Georgia', serif,'Times New Roman';
+$color-text:#151515;
+
+body{
+    font-family:$font-stack;
+    color: $color-text;
+}
+.thumbnail{
+    min-height: 390px;
+    h4{
+        font-size: 12px;
+        font-weight: bold;
+    }
+}

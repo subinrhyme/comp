@@ -1,0 +1,45 @@
+<div class="row">
+    <div ng-show="mobileData">
+        
+        
+        <table class="table table-striped table-bordered">
+            <tbody>
+                <tr>
+                    <td><strong>Additional Features</strong></td>
+                    <td ng-if="mobileData.additionalFeatures!=''">{{mobileData.additionalFeatures}}</td>
+                </tr>
+                <tr>
+                    <td><strong>Android version</strong></td>
+                    <td><span ng-if="mobileData.android.os!=''">OS - {{mobileData.android.os}}, </span><span ng-if="mobileData.android.ui!=''">UI - {{mobileData.android.ui}}</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Availability</strong></td>
+                    <td ng-if="mobileData.availability!=''">{{mobileData.availability[0]}}</td>
+                </tr>
+                <tr>
+                    <td><strong>Battery</strong></td>
+                    <td><span ng-if="mobileData.battery.standbyTime!=''">Standby - {{mobileData.battery.standbyTime}}, </span><span ng-if="mobileData.battery.talkTime!=''">Talk - {{mobileData.battery.talkTime}}, </span><span ng-if="mobileData.battery.type!=''">Type - {{mobileData.battery.type}}</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Camera</strong></td>
+                    <td><span ng-repeat="features in mobileData.camera.features">{{features}}  {{$last ? "" : ($index==mobileData.connectivity.length-1) ? ' and ' : ', '}} </span><span ng-if="mobileData.camera.primary"><br />Primary</span> {{mobileData.camera.primary}}</td>
+                </tr>
+                <tr>
+                    <td><strong>Connectivity</strong></td>
+                    <td><span ng-repeat="connectivity in mobileData.connectivity" ng-if="connectivity!=''">{{connectivity}}</span></td>
+                </tr>
+                
+                <tr>
+                    <td><strong>Description</strong></td>
+                    <td ng-if="mobileData.description!=''">{{mobileData.description}}</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        
+          
+    </div>
+    <div ng-show="!mobileData" class="col-lg-3 col-md-6">
+        No Data
+    </div>
+</div>

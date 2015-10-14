@@ -1,0 +1,11 @@
+body {
+  font-family: "Georgia", serif, "Times New Roman";
+  color: #151515; }
+
+.thumbnail {
+  min-height: 390px; }
+  .thumbnail h4 {
+    font-size: 12px;
+    font-weight: bold; }
+
+/*# sourceMappingURL=style.css.map */
