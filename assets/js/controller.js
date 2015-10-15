@@ -1,6 +1,6 @@
 // controller.js
 
-mobileApp.controller('listController', function ($scope, $http, $location, $routeParams, mobileService) {
+mobileApp.controller('listController', function ($scope, $routeParams, mobileService) {
     
     var getList = mobileService.getList();
     
@@ -21,7 +21,7 @@ mobileApp.controller('listController', function ($scope, $http, $location, $rout
     
 });
 
-mobileApp.controller('detailController', function ($scope, $http, $location, $routeParams, mobileService) {
+mobileApp.controller('detailController', function ($scope, $routeParams, mobileService) {
     if($routeParams.id) {
         var getDetail = mobileService.getDetail($routeParams.id);
         
@@ -29,7 +29,25 @@ mobileApp.controller('detailController', function ($scope, $http, $location, $ro
         function(data) {
             
             if(data){
+                
+                if(data.connectivity.infrared == false) {
+                    data.connectivity.infrared = "No";
+                }else{
+                    data.connectivity.infrared = "Yes";
+                }
+                if(data.connectivity.gps == false) {
+                    data.connectivity.gps = "No";
+                }else{
+                    data.connectivity.gps = "Yes";
+                }
+                if(data.display.touchScreen == false) {
+                    data.display.touchScreen = "No";
+                }else{
+                    data.display.touchScreen = "Yes";
+                }
+                
                 $scope.mobileData = data;
+                
             }else{
                 $scope.mobileData = "nodata";
             }

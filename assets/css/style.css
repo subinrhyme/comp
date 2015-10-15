@@ -7,5 +7,8 @@ body {
   .thumbnail h4 {
     font-size: 12px;
     font-weight: bold; }
+  .thumbnail img {
+    background: #0C8EB2;
+    width: 70%; }
 
 /*# sourceMappingURL=style.css.map */
